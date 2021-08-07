@@ -18,20 +18,20 @@
                         <form action="{{ route('grade.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="roll_no" class="form-label">Student</label>
+                                <label for="student_id" class="form-label">Student</label>
                                 <select name="student_id" id="" class="form-control @error('student_id') is-invalid @enderror">
-                                    <option value="#">Select student</option>
+                                    <option value="">Select student</option>
                                 @foreach (App\Student::all() as $students)
                                 
                                 <option value="{{ $students->id }}">{{ $students->name}}</option>
                                 @endforeach
 
+                                </select>
                                 @error('student_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                </select>
                             </div>
 
                             <div class="mb-3">
